@@ -82,12 +82,12 @@ public class WebFunctions  extends WebActions {
            Thread.sleep(2000);
             clickObject(selectObj.radioButton,driver);
             clickObject(selectObj.contin,driver);
-//            if(!driver.getCurrentUrl().contains("BookHotel")){
-//                System.out.println("Invalid hotel search details.");
-//            }
-//            else {
-//                System.out.println("Selected Successfully.");
-//            }
+            if(driver.getCurrentUrl().contains("BookHotel")){
+                System.out.println("successful hotel search details.");
+            }
+            else {
+                System.out.println("Selected Successfully.");
+            }
         } catch (Exception e) {
             System.out.println("select hotel was unsuccessful,Errors" + e.getMessage());
            // Assert.fail();
@@ -143,16 +143,10 @@ public class WebFunctions  extends WebActions {
         }
 
         String order = OrderNum;
-        FileOutputStream fos = new FileOutputStream("orderNumber.txt");
+        FileOutputStream fos = new FileOutputStream("src/main/resources/orderNumber.txt");
         DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
         outStream.writeUTF(order);
         outStream.close();
-
-//        String order = OrderNum;
-//        BufferedWriter writer = new BufferedWriter(new FileWriter("ordernumber.txt"));
-//        writer.write(OrderNum);
-//
-//        writer.close();
 
     }
 
@@ -164,19 +158,11 @@ public class WebFunctions  extends WebActions {
 
     public void SearchOrderNumber(WebDriver driver) throws IOException {
         searchOrder search = new searchOrder(driver);
-       // orderNumGenerated();= new bookingConfirmation(driver);
-        //WebElement ordernumber =book.OrderNumber;
-       // arg1= ordernumber.getAttribute("value");
-
-       // bookingConfirmation book = new bookingConfirmation(driver);
-        //String OrderNum = book.OrderNumber.getAttribute("value");
-      // arg1=OrderNum;
-
         String result;
-        FileInputStream fis = new FileInputStream("orderNumber.txt");
+        FileInputStream fis = new FileInputStream("src/main/resources/orderNumber.txt");
         DataInputStream reader = new DataInputStream(fis);
         result = reader.readUTF();
-        System.out.println(result);
+       // System.out.println(result);
         reader.close();
         //assertEquals(OrderNum, result);
         String arg1=result;

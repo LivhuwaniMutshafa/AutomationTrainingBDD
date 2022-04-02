@@ -24,13 +24,9 @@ public class MyStepdefs {
 
     @Before
     public void settingUp() throws InterruptedException {
-       // HashMap<String, ResultSet> databases = connect.initializeConnection();
 
-        //Pass data into the loginData and hotelData ResultSet variables from the hashmaps
-        //rs = databases.get("login");
-        //rs2 = databases.get("hotel");
 
-        //launch browser and navigate to url
+
         web.setWebDriver(web.initializeWebDriver("chrome"));
         web.navigate("http://adactinhotelapp.com");
     }
@@ -117,15 +113,10 @@ public class MyStepdefs {
         adactin.SearchOrderNumber(web.getWebDriver());
     }
 
-
-    @When("^a booking record is displayed on the table,the user selects the booking radio button$")
-    public void aBookingRecordIsDisplayedOnTheTableTheUserSelectsTheBookingRadioButton() {
-        adactin.sel_Hotel(web.getWebDriver());
-    }
-
     @And("^a user clicks on cancel selected$")
     public void aUserClicksOnCancelSelected() {
-           adactin.deleteSearched(web.getWebDriver());
+
+        adactin.deleteSearched(web.getWebDriver());
     }
 
     @And("^a user search the recently deleted order$")
