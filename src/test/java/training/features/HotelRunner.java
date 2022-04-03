@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features="src/test/java/training/features/BookHotel.feature",
         format = {"json:target/cucumber.json","html:target/site/cucumber-pretty"},
         glue={"training.stepdefinition"},
-        tags = {"@run1"})
+        tags = {"@BOOKING"})
 
 
 
